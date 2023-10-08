@@ -4,6 +4,10 @@
 
 // Note: Be sure to read the corresponding .md file for each exercise, in the docs folder. 📘 👍
 
+function isFloat(n){
+	return Number(n) === n && n % 1 !== 0;
+  }
+
 export function capitalize(word) {
 	if (word === undefined) throw new Error('word is required');
 	return word.substring(0, 1).toUpperCase() + word.substring(1, word.length);
@@ -16,9 +20,6 @@ export function generateInitials(firstName, lastName) {
 }
 
 export function addVAT(originalPrice, vatRate) {
-	function isFloat(n){
-		return Number(n) === n && n % 1 !== 0;
-	  }
 	if (originalPrice === undefined)
 		throw new Error('originalPrice is requied');
 	if (vatRate === undefined) throw new Error('vatRate is required');
@@ -31,9 +32,6 @@ export function addVAT(originalPrice, vatRate) {
 }
 
 export function getSalePrice(originalPrice, reduction) {
-	function isFloat(n){
-		return Number(n) === n && n % 1 !== 0;
-	  }
 	if (originalPrice === undefined)
 		throw new Error('originalPrice is required');
 	if (reduction === undefined) throw new Error('reduction is required');
@@ -91,16 +89,28 @@ export function countLinuxUsers(users) {
 
 export function getMeanScore(scores) {
 	if (scores === undefined) throw new Error('scores is required');
-	// Add your code here!
 	let scoresLength = scores.length;
 	let totalScore= 0;
 	scores.forEach( element => {
 		totalScore = element + totalScore;
 	})
-	return totalScore/scoresLength;
+	let meanScore = totalScore/scoresLength;
+	if (isFloat(meanScore))
+	{
+		return Number(meanScore.toFixed(2));		
+	}
+	return meanScore;
 }
 
 export function simpleFizzBuzz(n) {
 	if (n === undefined) throw new Error('n is required');
-	// Add your code here!
+	if(n%5===0 && n%3===0){
+		return "fizzbuzz";
+	}else if (n%5!=0 && n%3!=0){
+		return n;
+	}else if (n%5===0){
+		return "buzz";
+	}else if (n%3===0){
+		return "fizz";
+	}
 }
