@@ -31,10 +31,19 @@ export function addVAT(originalPrice, vatRate) {
 }
 
 export function getSalePrice(originalPrice, reduction) {
+	function isFloat(n){
+		return Number(n) === n && n % 1 !== 0;
+	  }
 	if (originalPrice === undefined)
 		throw new Error('originalPrice is required');
 	if (reduction === undefined) throw new Error('reduction is required');
-	// Add your code here!
+	let salesPrice = originalPrice - ((originalPrice * reduction) / 100);
+	if (isFloat(salesPrice))
+	{
+		return Number(salesPrice.toFixed(2));		
+	}
+	return salesPrice;
+
 }
 
 export function getMiddleCharacter(str) {
