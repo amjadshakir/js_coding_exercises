@@ -127,9 +127,9 @@ describe("findSentencesContaining", () => {
     "Dependencies are specified in a simple object that maps a package name to a version range",
     "It's best to map these additional items such as a test framework, which is not needed for running your project, in a devDependencies object",
     "If you plan to publish your package, the most important things in your package.json are the name and version fields as they will be required",
-    "If you don’t plan to publish your package, the name and version fields are optional",
+    "If you don't plan to publish your package, the name and version fields are optional",
     "Put keywords in it. It's an array of strings. This helps people discover your package as it's listed in npm search",
-    "The bugs field should hold the url to your project’s issue tracker and / or the email address to which issues should be reported.",
+    "The bugs field should hold the url to your project's issue tracker and / or the email address to which issues should be reported.",
   ];
 
   test("returns only the sentences containing the specified string", () => {
