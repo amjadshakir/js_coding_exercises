@@ -16,10 +16,18 @@ export function generateInitials(firstName, lastName) {
 }
 
 export function addVAT(originalPrice, vatRate) {
+	function isFloat(n){
+		return Number(n) === n && n % 1 !== 0;
+	  }
 	if (originalPrice === undefined)
 		throw new Error('originalPrice is requied');
 	if (vatRate === undefined) throw new Error('vatRate is required');
-	// Add your code here!
+	let grossAmount = originalPrice + ((originalPrice * vatRate) / 100);
+	if (isFloat(grossAmount))
+	{
+		return Number(grossAmount.toFixed(2));		
+	}
+	return grossAmount;	
 }
 
 export function getSalePrice(originalPrice, reduction) {
